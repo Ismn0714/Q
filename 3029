@@ -1,0 +1,49 @@
+# 경고
+# 현재 시간 입력
+h1, m1, s1 = input().split(':')
+# 던질 시간 입력
+h2, m2, s2 = input().split(':')
+
+# 현재시간과 던질 시간을 다 정수형으로 바꿈
+h1 = int(h1)
+m1 = int(m1)
+s1 = int(s1)
+h2 = int(h2)
+m2 = int(m2)
+s2 = int(s2)
+
+# 현재 시간을 초로 다 바꿈
+nt = h1*60*60+m1*60+s1
+# 던질 시간은 초로 다 바꿈
+tt = h2*60*60+m2*60+s2
+
+
+# 던질 시간 - 현재 시간이 음수라면
+# 던질 시간에 24를 초로 바꾼 것을 더하기
+if tt - nt < 0:
+    tt += 24*60*60
+    tt -= nt
+else:
+    tt -= nt
+# 위가정을 통해서 나온 던질 시간 - 현재 시간의 값을 시 분 초로 바꾸기
+an1 = tt//60//60
+an3 = tt%60
+an2 = (tt-an1*60*60)//60
+
+an1 = str(an1)
+an2 = str(an2)
+an3 = str(an3)
+
+if len(an1) == 1:
+    ans1 = '0'+an1
+else:
+    ans1 = an1
+if len(an2) == 1:
+    ans2 = '0'+an2
+else:
+    ans2 = an2
+if len(an3) == 1:
+    ans3 = '0'+an3
+else:
+    ans3 = an3
+print(ans1 + ':'+ans2+':'+ans3)
