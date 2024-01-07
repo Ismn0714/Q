@@ -1,0 +1,11 @@
+n = int(input())
+an1 = []
+an2 = []
+for i in range(n):
+    blank = input()
+    l = list(map(int,input().split()))
+    a, b, c, d = map(int,input().split())
+    an1.append(a + b//30 + c//25 + d//10)
+    an2.append(16 * (sum(l) // 30))
+print(max(an2))
+print(max(an1))
